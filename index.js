@@ -15,7 +15,8 @@ const Jamb = db.jamb;
 const app = express();
 
 const corsOption = {
-    origin: 'http://localhost:8080',
+    // origin: 'http://localhost:8080',
+    origin: 'https://www.sas-web.codetechweb.com',
     'Access-Control-Allow-Origin': 'http://localhost:8080',
   'Access-Control-Allow-Methods': 'GET, POST, OPTIONS, PUT, PATCH, DELETE',
   'Access-Control-Allow-Headers': 'X-Requested-With,content-type',
