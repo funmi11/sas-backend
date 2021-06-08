@@ -7,10 +7,6 @@ module.exports = (sequelize, Sequelize) => {
         subjectId: {
             type: Sequelize.INTEGER,
             allowNull: false
-        }, 
-        jambId: {
-            type: Sequelize.INTEGER,
-            allowNull: false
         },
          score: {
             type: Sequelize.INTEGER,
