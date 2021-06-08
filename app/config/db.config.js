@@ -15,7 +15,7 @@
 module.exports = {
   HOST: "localhost",
   USER: "useful",
-  PASSWORD: "kareem1987yusufOLATAYO@CODEtech2019",
+  PASSWORD: "kareem1987yusufOLATAYO",
   DB: "sas",
   dialect: "mysql",
   pool: {
