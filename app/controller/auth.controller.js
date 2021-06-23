@@ -168,12 +168,14 @@ exports.signin = (req, res) => {
 exports.UpdatePassword = (req, res) => {
     User.findOne({
       where: {
-        id: req.body.userId
+        id: req.userId
       }
     }).then(user => {
       if(!user){
         return res.status(200).send({message: "USER_NOT_FOUND", success: false});
       }
+      console.log(req.body.oldPassword);
+      console.log(user.password);
       var passwordIsValid = bcrypt.compareSync(
         req.body.oldPassword,
         user.password
@@ -182,15 +184,15 @@ exports.UpdatePassword = (req, res) => {
         return res.status(200).send({message: 'Old password is incorrect!!!', success: false});
       }
       User.update({
-        username: user.username,
-        email: user.email,
-        phoneNo: user.phoneNo,
-        firstName: user.firstName,
-        lastName: user.lastName,
-        nationality: user.nationality,
-        address: user.address,
-        image: user.image,
-        jambRegistrationNo: jambRegistrationNo,
+        // username: user.username,
+        // email: user.email,
+        // phoneNo: user.phoneNo,
+        // firstName: user.firstName,
+        // lastName: user.lastName,
+        // nationality: user.nationality,
+        // address: user.address,
+        // image: user.image,
+        // jambRegistrationNo: jambRegistrationNo,
         password:  newPassword
       },
       {

@@ -28,7 +28,7 @@ module.exports = function(app){
     [/*[authJwt.isUserOrAdmin],*/], 
     controller.signin);
 
-    app.post('/api/auth/UpdatePassword',
+    app.post('/api/auth/update-password',
     [
     authJwt.verifyToken
     ],

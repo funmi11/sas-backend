@@ -39,45 +39,55 @@ exports.ReadOlevelResultById = (req, res) => {
 
 exports.updateOlevelResult = (req, res) => {
     let olevelRes = req.body.result;
-    olevelRes.forEach((jamb) => {
-        Olevel.findOne({
-            where: {
-                subjectId: req.subjectId,
-                sitting: req.sitting
-            }
-        }).then(olevelResult => {
-            if(olevelResult){
-                Olevel.update({
-                    examId: jamb.examId,
-                    subjectId: jamb.subjectId,
-                    userId: req.userId,
-                    grade: jamb.grade,
-                    sitting: jamb.sitting
-                },
-                {
-                    where: {
-                        id: parseInt(olevelResult.id)
-                    }
-                }).then(result => {
-                    res.status(200).send({result: result, success: true, message: 'olevel Result has been updated successfully'})
-                }).catch(err => {
-                    res.status(400).send({message:err.message, success: false})
-                })
-            } else {
-                Olevel.create({
-                    examId: jamb.examId,
-                    subjectId: jamb.subjectId,
-                    userId: req.userId,
-                    grade: jamb.grade,
-                    sitting: jamb.sitting
-                }).then(result => {
-                    res.status(200).send({result: result, success: true, message: 'olevel Result has been updated successfully'})
-                }).catch(err => {
-                    res.status(400).send({message:err.message, success: false})
-                })
-            }
-        });
-    });
+    console.log(olevelRes);
+    //olevelRes.forEach(olevel => {
+        //OlevelResult.create({
+            //examId: olevel.examId,
+          //  result: olevel.result,
+        //    sitting: olevel.sitting
+      //  });
+    //});
+   // res.status(200).send({olevel: olevelRes, message: 'success'});
+
+    // olevelRes.forEach((jamb) => {
+    //     Olevel.findOne({
+    //         where: {
+    //             subjectId: req.subjectId,
+    //             sitting: req.sitting
+    //         }
+    //     }).then(olevelResult => {
+    //         if(olevelResult){
+    //             Olevel.update({
+    //                 examId: jamb.examId,
+    //                 subjectId: jamb.subjectId,
+    //                 userId: req.userId,
+    //                 grade: jamb.grade,
+    //                 sitting: jamb.sitting
+    //             },
+    //             {
+    //                 where: {
+    //                     id: parseInt(olevelResult.id)
+    //                 }
+    //             }).then(result => {
+    //                 res.status(200).send({result: result, success: true, message: 'olevel Result has been updated successfully'})
+    //             }).catch(err => {
+    //                 res.status(400).send({message:err.message, success: false})
+    //             })
+    //         } else {
+    //             Olevel.create({
+    //                 examId: jamb.examId,
+    //                 subjectId: jamb.subjectId,
+    //                 userId: req.userId,
+    //                 grade: jamb.grade,
+    //                 sitting: jamb.sitting
+    //             }).then(result => {
+    //                 res.status(200).send({result: result, success: true, message: 'olevel Result has been updated successfully'})
+    //             }).catch(err => {
+    //                 res.status(400).send({message:err.message, success: false})
+    //             })
+    //         }
+    //     });
+    // });
 }
 
 exports.deleteOlevelResult = (req, res) =>{

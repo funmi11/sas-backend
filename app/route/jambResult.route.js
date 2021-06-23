@@ -13,7 +13,7 @@ module.exports = function(app){
     app.post("/api/jamb-result/update",[authJwt.verifyToken, authJwt.isStudent], 
     controller.updateJambResult);
 
-    app.get("/api/my-jamb-result/:page/:limit",[authJwt.verifyToken, authJwt.isStudent],
+    app.get("/api/my-jamb-result",[authJwt.verifyToken, authJwt.isStudent],
     controller.ReadMyJambResult);
 
     app.get("/api/jamb-result/:id",[authJwt.verifyToken, authJwt.isStudent],

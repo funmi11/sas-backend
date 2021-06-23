@@ -48,7 +48,7 @@ db.user.belongsToMany(db.role, {
     foreignKey: 'userId',
     otherKey: 'roleId'
 });
-
+db.subject.hasOne(db.jambResult);
 // db.exam.hasMany(db.olevel);
 // db.jamb.hasMany(db.jambResult);
 

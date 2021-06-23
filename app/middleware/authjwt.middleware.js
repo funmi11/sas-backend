@@ -14,6 +14,8 @@ verifyToken = (req, res, next) => {
     }
 
     jwt.verify(token, config.secret, (err, decoded) => {
+        console.log('token about to log out');
+        console.log(token);
         if(err) {
             return res.status(401).send({
                 message : 'unauthorized!', success: false
