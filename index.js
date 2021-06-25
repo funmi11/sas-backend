@@ -28,20 +28,21 @@ app.use(bodyParser.urlencoded({extended: true}));
 // const { admin } = require('./app/config/auth.config');
 
 
-db.sequelize.sync();
-// db.sequelize.sync({force: true}).then(() =>{
-//     console.log('Drop and Resync Database with {force: true}');
-//     createRoles();
-//     createSubject();
-//     createAdmin();
-//     craeteJambSession();
-// });
+// db.sequelize.sync();
+db.sequelize.sync({force: true}).then(() =>{
+    console.log('Drop and Resync Database with {force: true}');
+    createRoles();
+    createSubject();
+    createAdmin();
+    craeteJambSession();
+});
 
 require('./app/route/auth.route')(app)
 require('./app/route/jambResult.route')(app)
 require('./app/route/subject.route')(app)
 require('./app/route/olevel.route')(app)
 require('./app/route/user.route')(app)
+require('./app/route/exam.route')(app)
 
 const PORT = process.env.PORT || 5700;
 

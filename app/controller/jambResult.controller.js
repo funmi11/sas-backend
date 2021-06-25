@@ -41,7 +41,7 @@ exports.updateJambResult = (req, res) => {
     let jambRes = JSON.parse(req.body.result);
     // console.log(jambRes);
 
-    jambRes.forEach(result => {;
+    jambRes.forEach(result => {
         JambResult.findOne({
             where:{
                 userId: req.userId,
