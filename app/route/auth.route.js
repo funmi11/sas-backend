@@ -14,8 +14,8 @@ module.exports = function(app){
 
     app.post('/api/auth/signup-admin',
     [
-        // authJwt.verifyToken, 
-        // authJwt.isAdmin, 
+        authJwt.verifyToken, 
+        authJwt.isAdmin, 
         verifySignUp.checkDuplicateUsernameOrEmail
     ],
     controller.signUpAdmin);
